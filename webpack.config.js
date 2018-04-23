@@ -1,6 +1,9 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const ROOT_PATH = __dirname
+var path = require('path')
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+// const extractCSS = new ExtractTextPlugin('bootstrap/dist/css/bootstrap.min.css');
 module.exports = {
     entry: './src/index/index.js',
     mode: 'development',
@@ -10,7 +13,7 @@ module.exports = {
         proxy: {
             // 请求到 '/device' 下 的请求都会被代理到 target： http://debug.xxx.com 中
             '/zboxService/*': {
-                target: 'http://localhost:8021',
+                target: 'http://localhost',
                 secure: false, // 接受 运行在 https 上的服务
                 changeOrigin: true
             }
@@ -21,15 +24,10 @@ module.exports = {
         path: path.join(__dirname, 'dist'), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
         filename: "bundle.js"
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index/index.html'
-        }),
-        new webpack.HotModuleReplacementPlugin()
-    ],
     resolve: {
         alias: {
             vue: 'vue/dist/vue.js',
+            '@': ROOT_PATH + '/src'
         }
     },
     module: {
@@ -46,7 +44,26 @@ module.exports = {
              options: {
              extractCSS: true
              } */
+            }, {
+                test: /\.css$/,
+                // use: ExtractTextPlugin.extract({
+                //     fallback: "style-loader",
+                //     use: "css-loader"
+                // })
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
             }
         ]
-    }
-};
+    },
+    plugins: [
+        new ExtractTextPlugin("styles.css"),
+        new webpack.ProvidePlugin({
+            "$": "jquery",
+            "jQuery": "jquery",
+            "window.jQuery": "jquery"
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/index/index.html'
+        }),
+        new webpack.HotModuleReplacementPlugin()
+    ]
+}

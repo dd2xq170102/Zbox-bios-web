@@ -1,0 +1,34 @@
+{
+	"/home":{
+		"html":"/static/app/home/views/home.html",
+		"ctrl":"/home/homeSupport"
+	},
+	"/chatRoom":{
+		"html":"/static/app/chatRoom/views/chatRoom.html",
+		"ctrl":"/static/app/chatRoom/chatRoomSupport.js"
+	},
+	"/note":{
+		"html":"/static/app/note/views/note.html",
+		"ctrl":"/static/app/note/noteSupport.js"
+	},
+	"/upload":{
+		"html":"/static/app/upload/views/upload.html",
+		"ctrl":"/static/app/upload/upload.js"
+	},
+	"/video":{
+		"html":"/static/app/video/views/video.html",
+		"ctrl":"/static/app/video/videoSupport.js"
+	},
+	"/test":{
+		"html":"/static/app/test/views/test.html",
+		"ctrl":"/static/app/test/test.js"
+	},
+	"/dict":{
+		"html":"/static/app/dict/views/dict.html",
+		"ctrl":"/static/app/dict/dictSupport.js"
+	},
+	"/clipper":{
+		"html":"/static/app/clipper/views/clipper.html",
+		"ctrl":"/static/app/clipper/clipper.js"
+	}
+}

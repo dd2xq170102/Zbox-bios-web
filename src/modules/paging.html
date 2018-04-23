@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+th {
+	text-align: center;
+}
+table {
+	table-layout: fixed;
+	/* border-collapse: separate;//是否合并单元格
+    border-spacing: 2px; 单元格宽度 */
+    border-color: blue;
+    border: 1px;
+}
+#paging-table{
+	margin-bottom:0px;
+}
+#paging-table-body{
+	/* margin-top: 20px; */
+}
+.paging-table{
+}
+.table>tbody>tr>td {
+	text-overflow: ellipsis; /* 超出表格宽度截断处显示'...' */
+	overflow: hidden; /* 超出表格宽度部分隐藏 */
+	white-space: nowrap; /* 超出表格宽度，是否换行 */
+	border-top: 1px solid rgb(222, 168, 208);
+	/* border-bottom: 1px solid rgb(222, 168, 208); */
+}
+.table>thead>tr>th {
+	text-overflow: ellipsis; /* 超出表格宽度截断处显示'...' */
+	overflow: hidden; /* 超出表格宽度部分隐藏 */
+	white-space: nowrap; /* 超出表格宽度，是否换行 */
+	border-top: 1px solid rgb(222, 168, 208);
+	border-bottom: 1px solid rgb(222, 168, 208);
+	border-right: 1px solid rgb(222, 168, 208);
+}
+.paging-table-toolbar ul li a:hover {
+    background-color: #2898e0!important;
+    text-decoration: none;
+    border-radius: 3px;
+    color: #fff;
+}
+.paging-table-toolbar ul li a span{
+	margin-right: 4px;
+}
+.paging-table-toolbar ul li {
+	list-style-type:none;
+    float: left;
+    font-size: 14px;
+    line-height: 12px;
+    /* border-left: 1px solid #c9c9c9; */
+    padding: 0 7px;
+}
+.paging-table-toolbar ul {
+    list-style: none;
+    float: left;
+    margin: 10px 0;
+    padding: 0;
+}
+.paging-table-toolbar ul li a{
+    font-size: 13px;
+    padding: 3px 7px;
+}
+.paging-table-toolbar {
+    overflow: hidden;
+    border: 2px solid rgb(222, 168, 208);
+    border-bottom: none;
+}
+.table>thead>tr>.paging-table-head-last{
+	border-right:none;
+}
+.paging-table-box a{
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<div class="paging-table-box">
+		<div id="paging-table-toolbar">
+			<!-- <div class="paging-table-toolbar">
+				<ul>
+					<li><a><span class="glyphicon glyphicon-star" aria-hidden="true"></span>添加</a></li>
+					<li>
+						<a>
+							<span class="glyphicon glyphicon-star" aria-hidden="true"></span>删除
+						</a>
+					</li>
+				</ul>
+			</div> -->
+		</div>
+		<div class=" table-responsive">
+			<div id="paging-table-body" style="overflow:auto;">
+				<div id="paging-table-body-box">
+					<table id="paging-table" class="table table-hover">
+						<thead id="paging-table-head">
+							<tr>
+							</tr>
+						</thead>
+						<tbody id="paging-table-table">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<ul id="paging-pagination" class="pagination">
+		<li><a class="paging-tool" id="paging-first"
+			href='javascritp:void(0);'>首页</a></li>
+		<li><a class="paging-tool" id="paging-prev"
+			href='javascritp:void(0);'>上一页</a></li>
+		<li><a class="paging-tool" id="paging-next"
+			href='javascritp:void(0);'>下一页</a></li>
+		<li><a class="paging-tool" id="paging-last"
+			href='javascritp:void(0);'>末页</a></li>
+	</ul>
+</body>
+</html>
