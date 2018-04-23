@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    entry: './src/main.js',
+    entry: './src/index/index.js',
     mode: 'development',
     devServer: {
         port: 8099,
@@ -23,11 +23,30 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: 'src/index/index.html'
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js',
+        }
+    },
     module: {
-        rules: []
+        rules: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
+            // vue模板加载
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'/*,
+             options: {
+             extractCSS: true
+             } */
+            }
+        ]
     }
 };
