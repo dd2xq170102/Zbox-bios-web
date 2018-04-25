@@ -2,8 +2,7 @@ const ROOT_PATH = __dirname
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
-// const extractCSS = new ExtractTextPlugin('bootstrap/dist/css/bootstrap.min.css');
+
 module.exports = {
     entry: './src/index/index.js',
     mode: 'development',
@@ -44,18 +43,14 @@ module.exports = {
              options: {
              extractCSS: true
              } */
-            }, {
+            },
+            {
                 test: /\.css$/,
-                // use: ExtractTextPlugin.extract({
-                //     fallback: "style-loader",
-                //     use: "css-loader"
-                // })
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-            }
+                loader: "style-loader!css-loader"
+            },
         ]
     },
     plugins: [
-        new ExtractTextPlugin("styles.css"),
         new webpack.ProvidePlugin({
             "$": "jquery",
             "jQuery": "jquery",
@@ -64,6 +59,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index/index.html'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ]
 }
