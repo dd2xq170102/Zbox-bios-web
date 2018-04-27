@@ -17,28 +17,32 @@ function _alert(msg) {
     var alertId = "alert-myModal-" + cacheNum;
     var hight = window.screen.availHeight;//document.body.offsetHeight;
     //弹出框页面
-    var html = '<div class="modal fade" data-show="true" id="' + alertId + '" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">' +
-        '<style>#alert-myModal-core{ ' +
-//					'height:'+hight+'px;  '+
-        'top:50%;    ' +
-        'position:absolute; ' +
-        'margin-top:-150px;left:50%; margin-left:-150px;' +
-        '}' +
-        '.modal-body{word-wrap:break-word;}' +
-        '</style>' +
-        '<div id="alert-myModal-core" class="modal-dialog modal-sm">' +
-        '<div class="modal-content">' +
-        '<div class="modal-header">' +
-        '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
-        '<h4 class="modal-title" id="myModalLabel">系统提示</h4>' +
-        '</div>' +
-        '<div class="modal-body">' + msg + '</div>' +
-        '<div class="modal-footer">' +
-        '<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>' +
-        '</div>' +
-        '</div><!-- /.modal-content -->' +
-        '</div><!-- /.modal -->' +
-        '</div>';
+    var html =
+        `<style>
+        #alert-myModal-core{ 
+/*					height:'+hight+'px; */
+            top:50%;    
+            position:absolute; 
+            margin-top:-150px;left:50%; margin-left:-150px;
+        }
+        .modal-body{
+            word-wrap:break-word;
+        }
+        </style>
+        <div class="modal fade" data-show="true" id="` + alertId + `" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div id="alert-myModal-core" class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">系统提示</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">` + msg + `</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>`;
 
     //添加页面到HTML
     $(document.body).append(html);

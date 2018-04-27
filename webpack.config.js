@@ -48,6 +48,14 @@ module.exports = {
                 test: /\.css$/,
                 loader: "style-loader!css-loader"
             },
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'url-loader?limit=1&name=./static/img/[hash].[ext]'
+            },
+            {
+                test:/\.ico$/,
+                loader:  'url-loader?limit=1&name=./[name].[ext]'
+            }
         ]
     },
     plugins: [
