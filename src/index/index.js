@@ -7,13 +7,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import * as uiv from 'uiv'
 import 'bootstrap/dist/css/bootstrap.css'
-// import  '../lib/bootstrap/bootstrap.css'
-// import '../lib/bootstrap/bootstrap.min.js'
-// import 'bootstrap/dist/js/bootstrap.bundle'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 
 Vue.use(uiv)
-Vue.config.productionTip = false
+Vue.config.productionTip = false //设置为 false 以阻止 vue 在启动时生成生产提示。
 
 new Vue({
     el: "#app",

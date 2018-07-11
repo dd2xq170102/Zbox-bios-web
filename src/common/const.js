@@ -5,5 +5,6 @@
 let projectName = ''
 
 export default {
-    PROJECT_NAME: projectName
+    PROJECT_NAME: projectName,
+    PROJECT_PATH: '/'
 }
